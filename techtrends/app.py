@@ -4,9 +4,11 @@ from flask import Flask, jsonify, json, render_template, request, url_for, redir
 from werkzeug.exceptions import abort
 from datetime import datetime
 import logging
+import sys
 
 # Count all database connections
 connection_count = 0
+
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
@@ -29,6 +31,10 @@ def get_post(post_id):
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 
+stdout_fileno = sys.stdout
+stderr_fileno = sys.stderr
+
+
 # Define the main route of the web application 
 @app.route('/')
 def index():
@@ -43,16 +49,18 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-      log_msg('Article with id "{id}" does not exist!'.format(id=post_id))
+      log_msg('Article with id "{id}" does not exist!'.format(id=post_id), 2)
       return render_template('404.html'), 404
     else:
-      log_msg('Article "{title}" successfully retrieved!'.format(title=post['title']))
+      log_msg('Article "{title}" successfully retrieved!'.format(title=post['title']), 1)
+      print('Article "{title}" successfully retrieved!'.format(title=post['title']))
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
-    log_msg('About page retrieve success!')
+    log_msg('About page retrieve success!', 1)
+    print('About page retrieve success!')
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -70,7 +78,8 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            log_msg('New article "{title}" created!'.format(title=title))
+            log_msg('New article "{title}" created!'.format(title=title), 1)
+            print('New article "{title}" created!'.format(title=title))
 
             return redirect(url_for('index'))
 
@@ -110,9 +119,15 @@ def metrics():
 
 
 # Log message function
-def log_msg(msg):
-    app.logger.info('{time} | {message}'.format( time=datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), message=msg))
-    
+def log_msg(msg, type):
+    if type == 1:
+        app.logger.info('{time} | {message}'.format( time=datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), message=msg))
+        stdout_fileno.write('{time} | {message} \n'.format( time=datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), message=msg))
+    if type == 2:
+        app.logger.error('{time} | {message} \n'.format( time=datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), message=msg))
+        stderr_fileno.write('{time} | {message} \n'.format( time=datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), message=msg))
+
+
 # start the application on port 3111
 if __name__ == "__main__":
     ## stream logs to a file

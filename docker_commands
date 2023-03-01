@@ -8,10 +8,11 @@ docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
 # TODO: insert the docker logs command
-docker logs 6747f7d7de15
+docker logs e02d98f2ada2
 
 ## Logs from the container running the TechTrends application
 # TODO: paste logs from the Docker container 
+
 
  * Serving Flask app 'app' (lazy loading)
  * Environment: production
@@ -21,24 +22,28 @@ docker logs 6747f7d7de15
 WARNING:werkzeug: * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
 INFO:werkzeug: * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:24:06] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:24:07] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:14/02/2023, 10:24:44 | About page retrieve success!
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:24:44] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:24:44] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:24:48] "GET /create HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:24:49] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:24:53] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:24:54] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:30:50] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:30:51] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:14/02/2023, 10:38:30 | About page retrieve success!
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:38:30] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:38:33] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:38:52] "GET /metrics HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:38:59] "GET /metrics HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:39:08] "GET /healthz HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:39:13] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:39:14] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:14/02/2023, 10:39:19 | Article "2020 CNCF Annual Report" successfully retrieved!
-INFO:werkzeug:172.17.0.1 - - [14/Feb/2023 10:39:19] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:02:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:02:11] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:02:12] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app:01/03/2023, 10:02:16 | Article "2020 CNCF Annual Report" successfully retrieved!
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:02:16] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:02:16] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:02:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:02:20] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:01/03/2023, 10:04:07 | About page retrieve success!
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:07] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:07] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:09] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:10] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:01/03/2023, 10:04:35 | New article "API Gateway" created!
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:35] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:36] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:01/03/2023, 10:04:38 | Article "KubeCon + CloudNativeCon 2021" successfully retrieved!
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:38] "GET /2 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:38] "GET /static/css/main.css HTTP/1.1" 304 -
+ERROR:app:01/03/2023, 10:04:42 | Article with id "45" does not exist!
+
+01/03/2023, 10:04:42 | Article with id "45" does not exist!
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:42] "GET /45 HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [01/Mar/2023 10:04:42] "GET /static/css/main.css HTTP/1.1" 304 -
